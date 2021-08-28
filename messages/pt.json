@@ -1,4 +1,6 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste"
+  "leads.navigation.label": "Leads",
+  "searchKeyWordsHelpers": "leads, prospect, cliente",
+  "leads.navigation.dashboard": "Dashboard",
+  "leads.navigation.leads": "Gerenciar"
 }
