@@ -5,6 +5,7 @@
     "test": "vtex-test-tools test"
   },
   "dependencies": {
+    "@vtex/styleguide": "^9.145.1",
     "apollo-client": "^2.6.8",
     "axios": "^0.21.1",
     "react": "^16.12.0",
