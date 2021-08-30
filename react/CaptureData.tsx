@@ -3,12 +3,6 @@ import './CaptureData.css'
 
 import api from './service/api'
 
-/* interface CaptureDateProps {
-  email: string;
-  name: string;
-  fone: string;
-} */
-
 const CaptureData: StorefrontFunctionComponent = () => {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -20,8 +14,6 @@ const CaptureData: StorefrontFunctionComponent = () => {
       email,
       fone,
     })
-
-
 
     event.preventDefault()
   }
