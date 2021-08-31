@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios'
 import React, { FC, useEffect, useState } from 'react'
 import { FiDelete, FiPlus, FiThumbsUp, FiCheck, FiEdit } from 'react-icons/fi'
+import { Layout, PageBlock } from 'vtex.styleguide'
 
 import './AdminLeads.css'
 
@@ -43,47 +44,56 @@ const AdminLeads: FC = () => {
   }, [])
 
   return (
-    <div>
-      <table>
-        <caption>
-          Prospecção
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>E-mail</th>
-              <th>Telefone</th>
-              <th>Status</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            {leads?.map((lead) => (
-              <tr key={lead.ID}>
-                <td>{lead.name}</td>
-                <td>{lead.ID}</td>
-                <td>{lead.fone}</td>
-                <td className="status">
-                  {lead.type === 'prospect' ? (
-                    <span>
-                      <FiThumbsUp />
-                    </span>
-                  ) : (
-                    <span className="lead">
-                      <FiCheck />
-                    </span>
-                  )}
-                </td>
-                <td>
-                  <button>{<FiPlus />}</button>
-                  <button>{<FiEdit />}</button>
-                  <button onClick={() => handleDeleteLead(lead.ID)}>{<FiDelete />}</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </caption>
-      </table>
-    </div>
+    <Layout>
+      <PageBlock
+        title="Se cadastre e ganhe"
+        subtitle="Ganhe $ 100 bonus em serviços"
+        variation="full"
+      >
+        <div>
+          <table>
+            <caption>
+              Prospecção
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Telefone</th>
+                  <th>Status</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leads?.map((lead) => (
+                  <tr key={lead.ID}>
+                    <td>{lead.name}</td>
+                    <td>{lead.ID}</td>
+                    <td>{lead.fone}</td>
+                    <td className="status">
+                      {lead.type === 'prospect' ? (
+                        <span>
+                          <FiThumbsUp />
+                        </span>
+                      ) : (
+                        <span className="lead">
+                          <FiCheck />
+                        </span>
+                      )}
+                    </td>
+                    <td>
+                      <button>{<FiPlus />}</button>
+                      <button>{<FiEdit />}</button>
+                      <button onClick={() => handleDeleteLead(lead.ID)}>{<FiDelete />}</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </caption>
+          </table>
+        </div>
+      </PageBlock>
+    </Layout>
+
   )
 }
 
