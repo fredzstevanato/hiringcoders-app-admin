@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 import React, { FC, useEffect, useState } from 'react'
 import { FiDelete, FiPlus, FiThumbsUp, FiCheck, FiEdit } from 'react-icons/fi'
 
@@ -16,8 +17,7 @@ const AdminLeads: FC = () => {
   const [leads, setLeads] = useState<LeadProps[]>()
   // const [isEdit, setIsEdit] = useState(false)
 
-  function handleDeleteLead(email: string) {
-
+  async function handleDeleteLead(email: string): Promise<void> {
     var axios = require("axios").default;
 
     var options = {
@@ -26,10 +26,10 @@ const AdminLeads: FC = () => {
       headers: { 'Content-Type': 'application/json', header1: 'stevanato_fredz@hotmail.com' }
     };
 
-    axios.request(options).then(function (response: { data: any }) {
+    await axios.request(options).then(function (response: AxiosResponse) {
       console.log(response.data);
-    }).catch(function (error: any) {
-      console.error(error);
+    }).catch(function () {
+      console.error('Erro');
     });
   }
 
