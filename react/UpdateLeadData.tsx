@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from './service/api'
+var axios = require("axios").default;
+
 
 //import { } from 'vtex.styleguide'
 
@@ -24,18 +26,13 @@ const UpdateLeadData: StorefrontFunctionComponent = () => {
       }
     }
     getUrl()
-    console.log(email)
   }, [email])
 
   useEffect(() => {
     async function sendEmailAws(email: string) {
-      const headers = {
-        headers: {
-          'Content-Type': 'application/json',
-          'header1': email
-        }
-      }
-      await api.patch('/leads', headers) as LeadProps;
+      api.delete('/lead', {
+        headers: { header1: "stevanato_fredez@hotmail.com" }
+      })
     }
 
     sendEmailAws(email)
